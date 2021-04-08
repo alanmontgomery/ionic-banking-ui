@@ -1,0 +1,7 @@
+{
+  "name": "ionic-react-banking-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
