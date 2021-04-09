@@ -1,0 +1,58 @@
+.customSlide {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.transactionList {
+
+    overflow: scroll;
+    width: 100vw;
+}
+
+.balance {
+
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.poundSign {
+
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.heading h6 {
+
+    padding: 0;
+    margin: 0;
+    text-align: left !important;
+    float: left !important;
+    text-align: left !important;
+    color: rgb(124, 124, 124);
+    font-weight: 400;
+}
+
+.heading {
+
+    width: 83%;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.75rem;
+}
+
+.addButton {
+
+    --border-radius: 500px !important;
+    width: fit-content !important;
+    margin-top: 0.45rem;
+    margin-left: 1rem;
+    opacity: 0.6;
+}

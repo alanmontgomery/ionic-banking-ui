@@ -1,0 +1,53 @@
+.avatarImage {
+
+    /* background-color: var(--ion-color); */
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 500px;
+    color: black;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0.5rem !important;
+    border: 2px solid rgb(44, 44, 44);
+    margin-top: 0.2rem;
+}
+
+.transactionItem {
+
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.transactionItemContent {
+
+    padding-left: 3rem;
+    padding-right: 2rem;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    margin-top: -0.2rem;
+    margin-bottom: -0.2rem;
+}
+
+.fileContent {
+
+    padding: 1rem;
+}
+
+.green {
+
+    color: rgb(0, 165, 0);
+}
+
+.red {
+    
+    color: red;
+}

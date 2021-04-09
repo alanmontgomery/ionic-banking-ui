@@ -1,0 +1,40 @@
+.homePage ion-toolbar {
+
+    --border-style: none;
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.customSlide {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.transactionList {
+
+    overflow: scroll;
+    width: 100vw;
+}
+
+.balance {
+
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.poundSign {
+
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.toolbarAvatarImage {
+
+    border-radius: 500px;
+    height: 100%;
+    width: auto;
+}
