@@ -13,6 +13,8 @@ An example of a Banking App in Ionic React
 * CSS Modules
 * Ionic CSS utilities
 
+*NOTE: There is no validation on the forms in this example.*
+
 ### To run
 
 ```javascript
