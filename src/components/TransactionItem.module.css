@@ -37,9 +37,10 @@
     margin-bottom: -0.2rem;
 }
 
-.fileContent {
+.transactionContent {
 
     padding: 1rem;
+    text-align: left !important;
 }
 
 .green {

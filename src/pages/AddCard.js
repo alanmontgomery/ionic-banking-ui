@@ -31,6 +31,7 @@ const AddCard = () => {
 
         const newCard = {
 
+            id: cards.length + 1,
             type: cardType,
             color: cardColor,
             description: cardDescription,
@@ -38,7 +39,13 @@ const AddCard = () => {
             secret: cardSecret,
             expiry: cardExpiry,
             balance: cardBalance,
-            transactions: []
+            transactions: [
+                {
+                    name: "Starting Balance",
+                    amount: cardBalance,
+                    deposit: true
+                }
+            ]
         };
 
         await addCardToAccount(newCard);
@@ -47,7 +54,7 @@ const AddCard = () => {
             
             setAdding(false);
             history.goBack();
-        }, 2000);
+        }, 500);
     }
 
 	return (

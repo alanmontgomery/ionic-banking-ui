@@ -24,6 +24,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import AddTransaction from './pages/AddTransaction';
 
 const App = () => (
 	<IonApp>
@@ -42,6 +43,10 @@ const App = () => (
 
 				<Route path="/account/add-card" exact={ true }>
 					<AddCard />
+				</Route>
+
+				<Route path="/add-transaction/:card_id" exact={ true }>
+					<AddTransaction />
 				</Route>
 			</IonRouterOutlet>
 		</IonReactRouter>

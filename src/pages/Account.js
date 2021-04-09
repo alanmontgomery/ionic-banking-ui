@@ -57,7 +57,7 @@ const Account = () => {
                         { cards.map((card, index) => {
 
                             return (
-                                <IonRow key={ `smallCard_${ index }` } className="animate__animated animate__fadeInLeft">
+                                <IonRow key={ `smallCard_${ index }` } className="animate__animated animate__fadeInLeft animate__faster">
                                     <IonCol size="12">
                                         <IonItem className={ styles.cardItem } detail={ false } lines="none">
                                             <div className={ styles.smallCard } style={{ backgroundColor: card.color }}></div>

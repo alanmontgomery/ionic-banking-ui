@@ -39,14 +39,14 @@ const TransactionItem = props => {
                     <div style={{ borderColor: color, color: color }} className={ styles.avatarImage }>{ getContactNameInitials(name) }</div>
                 </IonAvatar>
 
-                <IonLabel className={ `ion-text-wrap ${ styles.fileContent }` }>
+                <IonLabel className={ `ion-text-wrap ${ styles.transactionContent }` }>
                     <h2>{ name }</h2>
                 </IonLabel>
 
-                <IonLabel className={ `ion-text-wrap ${ styles.fileContent }` }>
+                <IonLabel className={ `ion-text-wrap ${ styles.transactionContent }` }>
                     <h4 className={ deposit ? styles.green : styles.red }>
                         { deposit ? "+" : "-"}
-                        &pound;{ amount }
+                        &pound;{ parseFloat(amount).toFixed(2) }
                     </h4>
                 </IonLabel>
             </div>

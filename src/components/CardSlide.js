@@ -20,7 +20,7 @@ const CardSlide = props => {
                     <IonCardSubtitle id={ `slide_${ index }_balance` } className={ ` ${ styles.balance } animate__animated` }>
                         <span className={ styles.poundSign }>£</span>
                             &nbsp;{ parseFloat(card.balance).toFixed(2) }
-                            <IonButton className={ styles.addButton } size="small" style={{ "--background": card.color, "--background-focused": card.color, "--background-hover": card.color, "--background-activated": card.color }}>
+                            <IonButton className={ styles.addButton } size="small" style={{ "--background": card.color, "--background-focused": card.color, "--background-hover": card.color, "--background-activated": card.color }} routerLink={ `/add-transaction/${ card.id }` }>
                                 <IonIcon icon={ addOutline } />
                             </IonButton>
                     </IonCardSubtitle>
@@ -42,7 +42,7 @@ const CardSlide = props => {
                 <IonRow id={ `slide_${ index }_transactions` } className="animate__animated">
                     <IonCol size="12">
                         <IonList className={ styles.transactionList }>
-                            { (card.transactions.length > 0) && card.transactions.map((transaction, index) => <TransactionItem key={ `card_transaction_${ index }`} { ...transaction } color={ card.color } />) }
+                            { (card.transactions.length > 0) && card.transactions.slice(0).reverse().map((transaction, index) => <TransactionItem key={ `card_transaction_${ index }`} { ...transaction } color={ card.color } />) }
                         </IonList>
                     </IonCol>
                 </IonRow>
@@ -53,7 +53,7 @@ const CardSlide = props => {
                <IonRow id={ `slide_${ index }_transactions` } className="animate__animated">
                     <IonCol size="12">
                         <h5>No transactions found</h5>
-                        <IonButton style={{ "--background": card.color, "--background-focused": card.color, "--background-hover": card.color, "--background-activated": card.color }}>
+                        <IonButton style={{ "--background": card.color, "--background-focused": card.color, "--background-hover": card.color, "--background-activated": card.color }} routerLink={ `/add-transaction/${ card.id }` }>
                             <IonIcon icon={ arrowRedoOutline } />&nbsp;Transfer funds
                         </IonButton>
                     </IonCol>

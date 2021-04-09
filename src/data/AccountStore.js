@@ -11,13 +11,14 @@ export const AccountStore = new Store({
     cards: [
         
         {
+            id: 1,
             type: "visa",
             description: "Current Account",
             number: "4859 2390 5635 7347",
             expiry: "11/22",
             secret: "483",
             color: "orange",
-            balance: "2.39",
+            balance: "38.21",
             transactions: [
                 {
                     name: "Joe Bloggs",
@@ -57,6 +58,7 @@ export const AccountStore = new Store({
             ]
         },
         {
+            id: 2,
             type: "visa",
             description: "Savings",
             number: "7349 1284 6790 4587",
@@ -67,31 +69,20 @@ export const AccountStore = new Store({
             transactions: [
                 {
                     name: "Joe Bloggs",
-                    amount: "2.50",
+                    amount: "120.90",
                     deposit: true
                 }
             ]
         },
         {
+            id: 3,
             type: "visa",
             description: "House Fund",
             number: "6783 5692 4475 6682",
             expiry: "01/24",
             secret: "321",
             color: "purple",
-            balance: "273.25",
-            transactions: [
-                
-            ]
-        },
-        {
-            type: "visa",
-            description: "Spare money",
-            number: "6698 6784 4331 1298",
-            expiry: "09/23",
-            secret: "019",
-            color: "black",
-            balance: "1,289.50",
+            balance: "0",
             transactions: [
             ]
         }
@@ -101,6 +92,25 @@ export const AccountStore = new Store({
 export const addCardToAccount = (newCard) => {
 
     AccountStore.update(s => { s.cards = [ ...s.cards, newCard ]; });
+}
+
+export const addTransactionToCard = (newTransaction, cardID) => {
+
+    AccountStore.update(s => { 
+        s.cards.find((c, index) => (parseInt(c.id) === parseInt(cardID)) ? s.cards[index].transactions = [ ...s.cards[index].transactions, newTransaction ] : false ) 
+    });
+
+    if (newTransaction.deposit) {
+        
+        AccountStore.update(s => { 
+            s.cards.find((c, index) => (parseInt(c.id) === parseInt(cardID)) ? s.cards[index].balance = (parseFloat(s.cards[index].balance) + parseFloat(newTransaction.amount)) : false ) 
+        });
+    } else {
+
+        AccountStore.update(s => { 
+            s.cards.find((c, index) => (parseInt(c.id) === parseInt(cardID)) ? s.cards[index].balance = (parseFloat(s.cards[index].balance) - parseFloat(newTransaction.amount)) : false ) 
+        });
+    }
 }
 
 // export const removeFromCart = productIndex => {
