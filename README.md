@@ -1,7 +1,7 @@
 # ionic-banking-ui
 An example of a Banking App in Ionic React
 
-![Ionic React Banking App](https://repository-images.githubusercontent.com/355272810/25392780-9707-11eb-95b2-bb9c6eefd313)
+![Ionic React Banking App](https://repository-images.githubusercontent.com/356345920/beb24480-9966-11eb-9397-d378677de5d0)
 
 ### Included in this Ionic React Template/UI
 * Global state management with Pullstate
@@ -12,6 +12,8 @@ An example of a Banking App in Ionic React
 * Use of stock Ionic components
 * CSS Modules
 * Ionic CSS utilities
+
+*NOTE: There is no validation on the forms in this example.*
 
 ### To run
 
