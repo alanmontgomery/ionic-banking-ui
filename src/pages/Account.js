@@ -2,6 +2,7 @@ import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonH
 import styles from "./Account.module.css";
 import { AccountStore } from '../data/AccountStore';
 import { addOutline, logOutOutline } from 'ionicons/icons';
+import { formatBalance } from '../data/Utils';
 
 const Account = () => {
 
@@ -67,7 +68,7 @@ const Account = () => {
                                             </IonLabel>
 
                                             <IonLabel className="ion-text-right">
-                                                <h4>&pound;{ parseFloat(card.balance).toFixed(2) }</h4>
+                                                <h4>&pound;{ formatBalance(card.balance) }</h4>
                                             </IonLabel>
                                         </IonItem>
                                     </IonCol>

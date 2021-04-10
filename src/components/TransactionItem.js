@@ -1,4 +1,5 @@
 import { IonAvatar, IonItem, IonLabel } from "@ionic/react";
+import { formatBalance } from "../data/Utils";
 import styles from "./TransactionItem.module.css";
 
 const TransactionItem = props => {
@@ -14,15 +15,20 @@ const TransactionItem = props => {
             const nameParts = contactName && contactName.split(" ");
 
             if (nameParts) {
-
+                
                 if (nameParts[0].charAt(0).match(/^[a-z]+$/i)) {
 
-                    nameInitials += nameParts[0].charAt(0);
+                    nameInitials += nameParts[0].charAt(0).toUpperCase();
                 }
 
-                if (nameParts[1].charAt(0).match(/^[a-z]+$/i)) {
+                if (nameParts[1]) {
+                    if (nameParts[1].charAt(0).match(/^[a-z]+$/i)) {
 
-                    nameInitials += nameParts[1].charAt(0);
+                        nameInitials += nameParts[1].charAt(0).toUpperCase();
+                    }
+                } else {
+
+                    nameInitials += nameParts[0].charAt(1).toUpperCase();
                 }
             }
         }
@@ -46,7 +52,7 @@ const TransactionItem = props => {
                 <IonLabel className={ `ion-text-wrap ${ styles.transactionContent }` }>
                     <h4 className={ deposit ? styles.green : styles.red }>
                         { deposit ? "+" : "-"}
-                        &pound;{ parseFloat(amount).toFixed(2) }
+                        &pound;{ formatBalance(amount) }
                     </h4>
                 </IonLabel>
             </div>

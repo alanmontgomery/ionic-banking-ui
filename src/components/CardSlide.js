@@ -4,6 +4,7 @@ import DebitCard from "./DebitCard";
 import styles from "./CardSlide.module.css";
 import TransactionItem from "./TransactionItem";
 import { addOutline, arrowRedoOutline } from "ionicons/icons";
+import { formatBalance } from "../data/Utils";
 
 const CardSlide = props => {
 
@@ -19,7 +20,7 @@ const CardSlide = props => {
                     </IonCardSubtitle>
                     <IonCardSubtitle id={ `slide_${ index }_balance` } className={ ` ${ styles.balance } animate__animated` }>
                         <span className={ styles.poundSign }>£</span>
-                            &nbsp;{ parseFloat(card.balance).toFixed(2) }
+                            &nbsp;{ formatBalance(card.balance) }
                             <IonButton className={ styles.addButton } size="small" style={{ "--background": card.color, "--background-focused": card.color, "--background-hover": card.color, "--background-activated": card.color }} routerLink={ `/add-transaction/${ card.id }` }>
                                 <IonIcon icon={ addOutline } />
                             </IonButton>
