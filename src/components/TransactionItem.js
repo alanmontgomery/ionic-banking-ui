@@ -42,7 +42,7 @@ const TransactionItem = props => {
 
             <div className={ styles.transactionItemContent }>	
                 <IonAvatar slot="start">
-                    <div style={{ borderColor: color, color: color }} className={ styles.avatarImage }>{ getContactNameInitials(name) }</div>
+                    <div style={{ borderColor: "grey", color: "grey" }} className={ styles.avatarImage }>{ getContactNameInitials(name) }</div>
                 </IonAvatar>
 
                 <IonLabel className={ `ion-text-wrap ${ styles.transactionContent }` }>
