@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { IonButton, IonButtons, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar, useIonViewDidEnter } from '@ionic/react';
 import styles from "./Home.module.css";
 import { AccountStore } from '../data/AccountStore';
 import CardSlide from '../components/CardSlide';
@@ -18,8 +18,14 @@ const Home = () => {
 
 	const [ pageTitle, setPageTitle ] = useState(cards[0].description);
 	const [ mainColor, setMainColor ] = useState(cards[0].color);
+	const [ slideSpace, setSlideSpace ] = useState(10);
 
 	const slidesRef = useRef();
+
+	useIonViewDidEnter(() => {
+
+        setSlideSpace(0);
+    });
 
 	const changeSlide = async e => {
 
@@ -76,7 +82,7 @@ const Home = () => {
 			<IonContent fullscreen>
 
 				<IonGrid>
-					<Swiper spaceBetween={ 0 } ref={ slidesRef } slidesPerView={ 1 } className={ styles.cardsContainer }  onTouchStart={ e => manageTouch(true, e) } onTouchEnd={ e => manageTouch(false, e) } onSlideChange={ e => changeSlide(e) }>
+					<Swiper spaceBetween={ slideSpace } ref={ slidesRef } slidesPerView={ 1 } className={ styles.cardsContainer }  onTouchStart={ e => manageTouch(true, e) } onTouchEnd={ e => manageTouch(false, e) } onSlideChange={ e => changeSlide(e) }>
 
 						{ cards.map((card, index) => {
 							return (
