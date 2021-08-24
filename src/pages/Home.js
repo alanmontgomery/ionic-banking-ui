@@ -1,9 +1,15 @@
 import { useRef, useState } from 'react';
-import { IonButton, IonButtons, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonSlides, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import styles from "./Home.module.css";
 import { AccountStore } from '../data/AccountStore';
 import CardSlide from '../components/CardSlide';
 import { searchOutline } from 'ionicons/icons';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
 
 const Home = () => {
 
@@ -15,16 +21,9 @@ const Home = () => {
 
 	const slidesRef = useRef();
 
-	const slideOpts = {
-
-		initialSlide: 0,
-  		speed: 400,
-		slidesPerView: 1
-	};
-
 	const changeSlide = async e => {
 
-		const swiper = await slidesRef.current.getSwiper();
+		const swiper = e;
 		const swiperIndex = swiper.activeIndex;
 
 		setPageTitle(cards[swiperIndex].description);
@@ -38,11 +37,11 @@ const Home = () => {
 		}, 1000);
 	}
 
-	const manageTouch = async touched => {
+	const manageTouch = async (touched, e) => {
 
-		const swiper = await slidesRef.current.getSwiper();
+		const swiper = e;
 		const swiperIndex = swiper.activeIndex;
-
+		
 		if (touched) {
 			
 			document.getElementById(`slide_${ swiperIndex }_transactions`).classList.add("animate__fadeOut");
@@ -77,12 +76,17 @@ const Home = () => {
 			<IonContent fullscreen>
 
 				<IonGrid>
-					<IonSlides onIonSlideTouchEnd={ () => manageTouch(false) } onIonSlideTouchStart={ () => manageTouch(true) } ref={ slidesRef } onIonSlideWillChange={ e => changeSlide(e) } pager={ false } options={ slideOpts } className={ styles.cardsContainer }>
+					<Swiper spaceBetween={ 0 } ref={ slidesRef } slidesPerView={ 1 } className={ styles.cardsContainer }  onTouchStart={ e => manageTouch(true, e) } onTouchEnd={ e => manageTouch(false, e) } onSlideChange={ e => changeSlide(e) }>
 
 						{ cards.map((card, index) => {
-							return <CardSlide key={ index } messages={ card.transactions } card={ card } profile={ profile } index={ index } />;
+							return (
+
+								<SwiperSlide key={ `slide_${ index }` } id={ `slide_${ index }` } className={ styles.customSlide }>
+									<CardSlide key={ index } card={ card } profile={ profile } index={ index } />
+								</SwiperSlide>
+							);
 						})}
-    				</IonSlides>
+					</Swiper>
 				</IonGrid>
 			</IonContent>
 		</IonPage>

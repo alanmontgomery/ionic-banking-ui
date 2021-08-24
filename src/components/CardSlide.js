@@ -1,4 +1,4 @@
-import { IonButton, IonCardSubtitle, IonCol, IonIcon, IonList, IonRow, IonSlide } from "@ionic/react";
+import { IonButton, IonCardSubtitle, IonCol, IonIcon, IonList, IonRow } from "@ionic/react";
 import DebitCard from "./DebitCard";
 
 import styles from "./CardSlide.module.css";
@@ -8,11 +8,10 @@ import { formatBalance } from "../data/Utils";
 
 const CardSlide = props => {
 
-    const { index, card, profile, messages } = props;
+    const { index, card, profile } = props;
 
     return (
-
-        <IonSlide key={ `slide_${ index }` } id={ `slide_${ index }` } className={ styles.customSlide }>
+        <>
             <IonRow className="ion-text-center">
                 <IonCol size="12">
                     <IonCardSubtitle color="medium">
@@ -60,7 +59,7 @@ const CardSlide = props => {
                     </IonCol>
                 </IonRow>
             }
-        </IonSlide>
+        </>
     );
 }
 
